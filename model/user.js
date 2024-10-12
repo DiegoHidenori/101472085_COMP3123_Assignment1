@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 
 // User schema
 const userSchema = new mongoose.Schema({
-    // "_id": ObjectId,
     "username": String,
     "email": String,
     "password": String, // This should be hashed
