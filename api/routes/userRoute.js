@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../model/user'); // Import the user model
+const User = require('../../model/user'); // Import the user model
 const bcrypt = require('bcrypt'); // To hash password
 const { body, validationResult } = require('express-validator');    // For validation
+// const connectDB = require('../db');  // Import the database connection
+// const errorHandlerMiddleware = require('../errorHandlerMiddleware'); // Import the error handler middleware
 
 
 // Root route, extra
-router.get('/', (req, res) => {
-    res.send('Root route');
+router.get('/', async (req, res) => {
+    res.send('Root route inside userRoute.js file');
 });
 
 
