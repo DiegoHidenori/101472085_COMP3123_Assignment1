@@ -3,7 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const { v4: uuidv4 } = require('uuid'); // For the unique id generation
 const userRouter = require('./routes/userRoute'); // Import the user router
-const employeeRouter = require('./model/employee');
+const employeeRouter = require('./routes/employeeRoute'); // Import the employee router
 const errorHandlerMiddleware = require('./errorHandlerMiddleware');
 const connectDB = require('./db');  // Import the database connection
 
@@ -42,18 +42,6 @@ app.get('/error', (req, res) => {
 app.use(loggerMiddleware);
 app.use(errorHandlerMiddleware);
 
-// User login endpoint
-app.post('/api/v1/user/login', (req, res) => {
-  const { username, password } = req.body;
-
-  // Find the user
-  const user = users.find(user => user.username === username);
-  if (!user || user.password !== password) {
-      return res.status(401).json({ message: 'Invalid credentials' });
-  }
-
-  return res.status(200).json({ message: 'Login successful', user });
-});
 
 // Start the server
 app.listen(PORT, () => {

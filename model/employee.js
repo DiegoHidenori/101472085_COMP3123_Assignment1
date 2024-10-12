@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 
 // Employee schema
 const employeeSchema = new mongoose.Schema({
-    "firstName": String,
-    "lastName": String,
+    "first_name": String,
+    "last_name": String,
     "email": String,
     "position": String,
     "salary": Number,

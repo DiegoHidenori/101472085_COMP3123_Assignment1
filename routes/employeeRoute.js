@@ -17,12 +17,12 @@ router.get('/employees', async (req, res) => {
 
 // POST method to create an employee
 router.post('/employees', [
-    body('firstName').notEmpty().withMessage('First name is required'),
-    body('lastName').notEmpty().withMessage('Last name is required'),
+    body('first_name').notEmpty().withMessage('First name is required'),
+    body('last_name').notEmpty().withMessage('Last name is required'),
     body('email').isEmail().withMessage('Invalid email'),
     body('position').notEmpty().withMessage('Position is required'),
     body('salary').isNumeric().withMessage('Invalid salary'),
-    body('date_of_joining').isDate().withMessage('Invalid date format'),
+    body('date_of_joining').isISO8601().withMessage('Invalid date format'),
     body('department').notEmpty().withMessage('Department is required')
 ], async (req, res) => {
     const errors = validationResult(req);
@@ -31,7 +31,7 @@ router.post('/employees', [
         return res.status(400).json({ status: false, message: errors.array() });
     }
 
-    const { firstName, lastName, email, position, salary, date_of_joining, department } = req.body;
+    const { first_name, last_name, email, position, salary, date_of_joining, department } = req.body;
 
 
     // To check if the employee already exists
@@ -42,8 +42,8 @@ router.post('/employees', [
 
 
     const newEmployee = new Employee({
-        firstName,
-        lastName,
+        first_name,
+        last_name,
         email,
         position,
         salary,
