@@ -22,7 +22,7 @@ router.post('/employees', [
     body('email').isEmail().withMessage('Invalid email'),
     body('position').notEmpty().withMessage('Position is required'),
     body('salary').isNumeric().withMessage('Invalid salary'),
-    body('date_of_joining').isISO8601().withMessage('Invalid date format'),
+    body('date_of_joining').isDate().withMessage('Invalid date format'),
     body('department').notEmpty().withMessage('Department is required')
 ], async (req, res) => {
     const errors = validationResult(req);
