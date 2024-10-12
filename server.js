@@ -19,6 +19,7 @@ const loggerMiddleware = (req, res, next) => {
 // Connect to the database
 connectDB();
 
+app.use(loggerMiddleware);
 
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/emp', employeeRouter);
@@ -39,7 +40,6 @@ app.get('/error', (req, res) => {
 //   }
 // });
 
-app.use(loggerMiddleware);
 app.use(errorHandlerMiddleware);
 
 
