@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 const { v4: uuidv4 } = require('uuid'); // For the unique id generation
 const userRouter = require('./routes/userRoute'); // Import the user router
 const employeeRouter = require('./routes/employeeRoute'); // Import the employee router
