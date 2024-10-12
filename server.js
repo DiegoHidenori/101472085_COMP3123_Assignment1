@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3002;
@@ -6,6 +7,7 @@ const userRouter = require('./routes/userRoute'); // Import the user router
 const employeeRouter = require('./routes/employeeRoute'); // Import the employee router
 const errorHandlerMiddleware = require('./errorHandlerMiddleware');
 const connectDB = require('./db');  // Import the database connection
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // Can send any type of data?
