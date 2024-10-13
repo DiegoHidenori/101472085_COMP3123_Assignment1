@@ -2,8 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3001;
-const userRouter = require('./api/routes/userRoute'); // Import the user router
-const employeeRouter = require('./api/routes/employeeRoute'); // Import the employee router
+const userRouter = require('./api/v1/user/userRoute'); // Import the user router
+const employeeRouter = require('./api/v1/emp/employeeRoute'); // Import the employee router
 const errorHandlerMiddleware = require('./api/errorHandlerMiddleware');
 const connectDB = require('./api/db');  // Import the database connection
 // const loggerMiddleware = require('./api/loggerMiddleware'); // Import the logger middleware
